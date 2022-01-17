@@ -5,6 +5,6 @@ This package provides a ROS wrapper for [PyTorch-YOLOv5](https://github.com/ultr
 **Authors**: Zhitao Zheng (<qq44642754@163.com>)
 
 # develop environment：
-- __Ubuntu 16.04 / 18.04__
-- __ROS Kinetic / Melodic__
-- __Python>=3.6.0 environment, including PyTorch>=1.7__
+- Ubuntu 16.04 / 18.04
+- ROS Kinetic / Melodic
+- Python>=3.6.0 environment, including PyTorch>=1.7
