@@ -32,3 +32,36 @@ $ export PATH=/home/bai/anaconda3/bin:$PATH
 ```
 $ source ~/.bashrc
 ```
+
+## Install Pytorch:
+
+### 1. First create an anaconda virtual environment for pytorch
+
+```
+$ conda create -n mypytorch python=3.8
+```
+
+### 2. activate the mypytorch environment
+
+```
+$ conda activate mypytorch
+```
+
+### 3. Install pytorch1.8 in the created pytorch environment
+
+```
+$ conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+```
+
+### 4. Edit ~/.bashrc file, set to use python3.8 in mypytorch environment
+
+```
+$ alias python='/home/bai/anaconda3/envs/mypytorch/bin/python3.8'
+```
+
+### 5. Execute after save and exit:
+
+```
+$ source ~/.bashrc
+```
+
