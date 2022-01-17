@@ -65,3 +65,12 @@ $ alias python='/home/bai/anaconda3/envs/mypytorch/bin/python3.8'
 $ source ~/.bashrc
 ```
 
+## Installation yolov5_ros
+
+```
+$ cd /your/catkin_ws/src
+$ git clone https://github.com/qq44642754a/Yolov5_ros.git
+$ cd Yolov5_ros/
+$ sudo pip install -r requirements.txt
+```
+
