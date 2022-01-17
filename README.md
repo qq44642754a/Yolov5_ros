@@ -15,9 +15,7 @@ This package provides a ROS wrapper for [PyTorch-YOLOv5](https://github.com/ultr
 
 #### 1. First download the corresponding installation package [Anaconda](https://www.anaconda.com/products/individual#linux)
 
-
-#### 2. Then install anaconda
-
+#### 2. Then install anaconda （for example）
 
 ```
 $ bash ~/Downloads/Anaconda3-2021.05-Linux-x86_64.sh
