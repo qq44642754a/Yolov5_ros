@@ -9,25 +9,25 @@ This package provides a ROS wrapper for [PyTorch-YOLOv5](https://github.com/ultr
 - ROS Kinetic / Melodic
 - Python>=3.6.0 environment, including PyTorch>=1.7
 
-## Prerequisites:
+# Prerequisites:
 
-### Install Anaconda:
+## Install Anaconda:
 
-#### 1. First download the corresponding installation package [Anaconda](https://www.anaconda.com/products/individual#linux)
+### 1. First download the corresponding installation package [Anaconda](https://www.anaconda.com/products/individual#linux)
 
-#### 2. Then install anaconda （for example）
+### 2. Then install anaconda （for example）
 
 ```
 $ bash ~/Downloads/Anaconda3-2021.05-Linux-x86_64.sh
 ```
 
-#### 3. Edit the ~/.bashrc file and add it at the end
+### 3. Edit the ~/.bashrc file and add it at the end
 
 ```
 $ export PATH=/home/bai/anaconda3/bin:$PATH
 ```
 
-#### 4. Execute after save and exit:
+### 4. Execute after save and exit:
 
 ```
 $ source ~/.bashrc
