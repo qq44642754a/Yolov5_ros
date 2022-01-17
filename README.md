@@ -96,7 +96,7 @@ roslaunch yolov5_ros yolo_v5.launch
 
     Published topic with the detected bounding boxes.
     
-    * **`confidence`** 
+* **`confidence`** 
 
     Confidence threshold for detected objects.
 
