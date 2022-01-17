@@ -72,35 +72,31 @@ sudo pip install -r requirements.txt
 
 ## Basic Usage
 
-### 1. First, make sure to put your weights in the [models](models) folder. There are already 3 weight files in the folder: smoking recognition, mask recognition, and yolov5s.pt.
-### 2.  The default settings (using `yolov5s.pt`) in the `launch/yolo_v5.launch` file should work, all you should have to do is change the image topic you would like to subscribe to:
+1. First, make sure to put your weights in the [models](models) folder. There are already 3 weight files in the folder: smoking recognition, mask recognition, and yolov5s.pt.
+2.  The default settings (using `yolov5s.pt`) in the `launch/yolo_v5.launch` file should work, all you should have to do is change the image topic you would like to subscribe to:
 
 ```
 roslaunch yolov5_ros yolo_v5.launch
 ```
 
   
-  Alternatively you can modify the parameters in the [launch file](launch/detector.launch), recompile and launch it that way so that no arguments need to be passed at runtime.
+  Alternatively you can modify the parameters in the [launch file](launch/yolo_v5.launch), recompile and launch it that way so that no arguments need to be passed at runtime.
 
 ### Node parameters
 
-* **`image_topic`** (string)
+* **`image_topic`** 
 
     Subscribed camera topic.
 
-* **`weights_name`** (string)
+* **`weights_path`** 
 
-    Weights to be used from the [models](models) folder.
+    Path to weights file.
 
-* **`config_name`** (string)
+* **`pub_topic`** 
 
-    The name of the configuration file in the [config](config) folder. Use `yolov3.cfg` for YOLOv3, `yolov3-tiny.cfg` for tiny YOLOv3, and `yolov3-voc.cfg` for YOLOv3-VOC.
+    Published topic with the detected bounding boxes.
+    
+    * **`confidence`** 
 
-* **`classes_name`** (string)
-
-    The name of the file for the detected classes in the [classes](classes) folder. Use `coco.names` for COCO, and `voc.names` for VOC.
-
-* **`publish_image`** (bool)
-
-    Set to true to get the camera image along with the detected bounding boxes, or false otherwise.
+    Confidence threshold for detected objects.
 
