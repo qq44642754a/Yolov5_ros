@@ -72,7 +72,7 @@ sudo pip install -r requirements.txt
 
 ## Basic Usage
 
-1. First, make sure to put your weights in the [models](weights) folder. There are already 3 weight files in the folder: smoking recognition, mask recognition, and yolov5s.pt.
+1. First, make sure to put your weights in the [models](https://github.com/qq44642754a/Yolov5_ros/tree/master/yolov5_ros/weights) folder. There are already 3 weight files in the folder: smoking recognition, mask recognition, and yolov5s.pt.
 2.  The default settings (using `yolov5s.pt`) in the `launch/yolo_v5.launch` file should work, all you should have to do is change the image topic you would like to subscribe to:
 
 ```
@@ -80,7 +80,7 @@ roslaunch yolov5_ros yolo_v5.launch
 ```
 
   
-  Alternatively you can modify the parameters in the [launch file](launch/yolo_v5.launch), recompile and launch it that way so that no arguments need to be passed at runtime.
+  Alternatively you can modify the parameters in the [launch file](https://github.com/qq44642754a/Yolov5_ros/tree/master/yolov5_ros/launch/yolo_v5.launch), recompile and launch it that way so that no arguments need to be passed at runtime.
 
 ### Node parameters
 
