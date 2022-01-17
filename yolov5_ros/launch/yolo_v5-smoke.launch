@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- Load Parameter -->
+  <param name="image_topic"       value="/camera/color/image_raw" />
+  <param name="weight_path"       value="$(find yolov5_ros)/weights/smoke.pt"/>
+  <param name="pub_topic"         value="/yolov5/smoke/BoundingBoxes" />
+  <param name="conf"              value="0.6" />
+
+  <!-- Start yolov5 and ros wrapper -->
+  <node pkg="yolov5_ros" type="yolo_v5.py" name="yolov5_ros_smoke" output="screen" />
+
+
+</launch>
