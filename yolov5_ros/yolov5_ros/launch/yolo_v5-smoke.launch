@@ -4,6 +4,7 @@
 
   <!-- Load Parameter -->
   <param name="image_topic"       value="/camera/color/image_raw" />
+  <param name="yolov5_path"          value="$(find yolov5_ros)"/>
   <param name="weight_path"       value="$(find yolov5_ros)/weights/smoke.pt"/>
   <param name="pub_topic"         value="/yolov5/smoke/BoundingBoxes" />
   <param name="conf"              value="0.6" />
