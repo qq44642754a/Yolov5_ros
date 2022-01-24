@@ -22,7 +22,7 @@ bash ~/Downloads/Anaconda3-2021.05-Linux-x86_64.sh
 ### 3. Edit the ~/.bashrc file and add it at the end
 
 ```
-export PATH=/home/bai/anaconda3/bin:$PATH
+export PATH=/home/your/anaconda3/bin:$PATH
 ```
 ### 4. Execute after save and exit:
 
@@ -50,7 +50,7 @@ conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 ### 4. Edit ~/.bashrc file, set to use python3.8 in mypytorch environment
 
 ```
-alias python='/home/bai/anaconda3/envs/mypytorch/bin/python3.8'
+alias python='/home/your/anaconda3/envs/mypytorch/bin/python3.8'
 ```
 ### 5. Execute after save and exit:
 
