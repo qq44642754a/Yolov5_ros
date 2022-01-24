@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import sys
-from numpy.lib.utils import source
-import numpy as np
 import cv2
-import random
-import torch
 import time
+import torch
 import rospy
-from sensor_msgs.msg import Image
+import numpy as np
+
+from numpy.lib.utils import source
 from std_msgs.msg import Header
-from cv_bridge import CvBridge
+from sensor_msgs.msg import Image
 from yolov5_ros.msg import BoundingBox
 
 
@@ -28,9 +28,9 @@ class Yolo_Dect:
                                     path=weight_path, force_reload=False)
 
         self.model.conf = 0.5
-        self.bridge = CvBridge()
         self.color_image = Image()
         self.depth_image = Image()
+        self.getImageStatus = False
 
         # image subscribe
         self.color_sub = rospy.Subscriber(image_topic, Image, self.image_callback,
@@ -42,8 +42,15 @@ class Yolo_Dect:
 
         self.image_pub = rospy.Publisher(
             '/yolov5/detection_image',  Image, queue_size=1)
+        while (not self.getImageStatus) and (not rospy.is_shutdown()):
+            rospy.loginfo ("waiting for image.")
+            rospy.sleep(2)
+        
+        os.system('clear')
+        rospy.loginfo( " start object detection")
 
     def image_callback(self, image):
+        self.getImageStatus = True
         self.color_image = np.frombuffer(image.data, dtype=np.uint8).reshape(
             image.height, image.width, -1)
         self.color_image = cv2.cvtColor(self.color_image, cv2.COLOR_BGR2RGB)
@@ -80,7 +87,7 @@ class Yolo_Dect:
     def publish_image(self, imgdata):
         image_temp = Image()
         header = Header(stamp=rospy.Time.now())
-        header.frame_id = 'map'
+        header.frame_id = 'camera_color_optical_frame'
         image_temp.height = 480
         image_temp.width = 640
         image_temp.encoding = 'bgr8'
