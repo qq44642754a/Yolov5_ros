@@ -18,18 +18,26 @@ from yolov5_ros_msgs.msg import BoundingBox
 class Yolo_Dect:
     def __init__(self):
 
+        # load parameters
         weight_path = rospy.get_param('/weight_path', '')
         yolov5_path = rospy.get_param('/yolov5_path', '')
         image_topic = rospy.get_param(
             '/image_topic', '/camera/color/image_raw')
         pub_topic = rospy.get_param('/pub_topic', '/yolov5/BoundingBoxes')
         conf = rospy.get_param('conf', '0.5')
+        self.camera_frame = rospy.get_param('camera_frame', '')
 
-        torch.hub.set_dir(yolov5_path)
-        self.model = torch.hub.load('ultralytics/yolov5', 'custom',
-                                    path=weight_path, force_reload=False)
+        # load local repository
+        self.model = torch.hub.load(yolov5_path, 'custom',
+                                    path=weight_path, source='local')
 
-        self.model.conf = 0.5
+        # which device will be used
+        if (rospy.get_param('/use_cpu', 'false')):
+            self.model.cpu()
+        else:
+            self.model.cuda()
+
+        self.model.conf = conf
         self.color_image = Image()
         self.depth_image = Image()
         self.getImageStatus = False
@@ -38,26 +46,31 @@ class Yolo_Dect:
         self.color_sub = rospy.Subscriber(image_topic, Image, self.image_callback,
                                           queue_size=1, buff_size=52428800)
 
-        # Output publishers
+        # output publishers
         self.position_pub = rospy.Publisher(
             pub_topic,  BoundingBox, queue_size=1)
 
         self.image_pub = rospy.Publisher(
             '/yolov5/detection_image',  Image, queue_size=1)
+
+        # if no image messages
         while (not self.getImageStatus) and (not rospy.is_shutdown()):
-            rospy.loginfo ("waiting for image.")
+            rospy.loginfo("waiting for image.")
             rospy.sleep(2)
-        
-        if (self.getImageStatus):                
+
+        if (self.getImageStatus):
             os.system('clear')
-            rospy.loginfo( " start object detection")
+            rospy.loginfo(" start object detection")
 
     def image_callback(self, image):
         self.getImageStatus = True
         self.color_image = np.frombuffer(image.data, dtype=np.uint8).reshape(
             image.height, image.width, -1)
         self.color_image = cv2.cvtColor(self.color_image, cv2.COLOR_BGR2RGB)
+
         results = self.model(self.color_image)
+	    # xmin    ymin    xmax   ymax  confidence  class    name
+
         boxs = results.pandas().xyxy[0].values
         self.dectshow(self.color_image, boxs, image.height, image.width)
 
@@ -90,7 +103,7 @@ class Yolo_Dect:
     def publish_image(self, imgdata, height, width):
         image_temp = Image()
         header = Header(stamp=rospy.Time.now())
-        header.frame_id = 'camera_color_optical_frame'
+        header.frame_id = self.camera_frame
         image_temp.height = height
         image_temp.width = width
         image_temp.encoding = 'bgr8'
