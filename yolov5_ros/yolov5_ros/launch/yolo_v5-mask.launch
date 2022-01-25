@@ -10,7 +10,7 @@
   <param name="conf"              value="0.5" />
 
   <!-- Start yolov5 and ros wrapper -->
-  <node pkg="yolov5_ros" type="yolo_v5.py" name="yolov5_ros" output="screen" />
+  <node pkg="yolov5_ros" type="yolo_v5.py" name="yolov5_ros_mask" output="screen" />
 
 
 </launch>
