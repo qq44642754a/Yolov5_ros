@@ -1,15 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import sys
 import cv2
-import time
 import torch
 import rospy
 import numpy as np
 
-from numpy.lib.utils import source
 from std_msgs.msg import Header
 from sensor_msgs.msg import Image
 from yolov5_ros_msgs.msg import BoundingBox
@@ -19,15 +15,16 @@ class Yolo_Dect:
     def __init__(self):
 
         # load parameters
-        weight_path = rospy.get_param('/weight_path', '')
         yolov5_path = rospy.get_param('/yolov5_path', '')
-        image_topic = rospy.get_param(
-            '/image_topic', '/camera/color/image_raw')
-        pub_topic = rospy.get_param('/pub_topic', '/yolov5/BoundingBoxes')
-        conf = rospy.get_param('conf', '0.5')
-        self.camera_frame = rospy.get_param('camera_frame', '')
 
-        # load local repository
+        weight_path = rospy.get_param('~weight_path', '')
+        image_topic = rospy.get_param(
+            '~image_topic', '/camera/color/image_raw')
+        pub_topic = rospy.get_param('~pub_topic', '/yolov5/BoundingBoxes')
+        self.camera_frame = rospy.get_param('~camera_frame', '')
+        conf = rospy.get_param('~conf', '0.5')
+
+        # load local repository(YoloV5:v6.0)
         self.model = torch.hub.load(yolov5_path, 'custom',
                                     path=weight_path, source='local')
 
@@ -58,10 +55,6 @@ class Yolo_Dect:
             rospy.loginfo("waiting for image.")
             rospy.sleep(2)
 
-        if (self.getImageStatus):
-            os.system('clear')
-            rospy.loginfo(" start object detection")
-
     def image_callback(self, image):
         self.getImageStatus = True
         self.color_image = np.frombuffer(image.data, dtype=np.uint8).reshape(
@@ -69,7 +62,7 @@ class Yolo_Dect:
         self.color_image = cv2.cvtColor(self.color_image, cv2.COLOR_BGR2RGB)
 
         results = self.model(self.color_image)
-	    # xmin    ymin    xmax   ymax  confidence  class    name
+        # xmin    ymin    xmax   ymax  confidence  class    name
 
         boxs = results.pandas().xyxy[0].values
         self.dectshow(self.color_image, boxs, image.height, image.width)
