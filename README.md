@@ -2,6 +2,8 @@
 
 This package provides a ROS wrapper for [PyTorch-YOLOv5](https://github.com/ultralytics/yolov5) based on PyTorch-YOLOv5. The package has been tested with Ubuntu 16.04 and Ubuntu 18.04.
 
+V1.0.1: Add device options(cpu or gpu).
+
 **Authors**: Zhitao Zheng (<qq44642754@163.com>)
 
 # develop environment：
