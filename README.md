@@ -6,6 +6,12 @@ V1.0.1: Add device options(cpu or gpu).
 
 **Authors**: Zhitao Zheng (<qq44642754@163.com>)
 
+<p>
+   <a align="left" href="https://ultralytics.com/yolov5" target="_blank">
+   <img width="400" src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png"></a>
+</p>
+
+
 # develop environment：
 - Ubuntu 16.04 / 18.04
 - ROS Kinetic / Melodic
@@ -102,9 +108,5 @@ roslaunch yolov5_ros yolo_v5.launch
 
     Confidence threshold for detected objects.
     
-<p>
-   <a align="left" href="https://ultralytics.com/yolov5" target="_blank">
-   <img width="400" src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png"></a>
-</p>
 
 
