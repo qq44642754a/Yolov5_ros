@@ -102,5 +102,9 @@ roslaunch yolov5_ros yolo_v5.launch
 
     Confidence threshold for detected objects.
     
-    <img src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png" width="405">
+<p>
+   <a align="left" href="https://ultralytics.com/yolov5" target="_blank">
+   <img width="850" src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png"></a>
+</p>
+
 
