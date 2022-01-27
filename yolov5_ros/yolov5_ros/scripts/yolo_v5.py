@@ -51,7 +51,7 @@ class Yolo_Dect:
             '/yolov5/detection_image',  Image, queue_size=1)
 
         # if no image messages
-        while (not self.getImageStatus) and (not rospy.is_shutdown()):
+        while (not self.getImageStatus) :
             rospy.loginfo("waiting for image.")
             rospy.sleep(2)
 
@@ -80,7 +80,7 @@ class Yolo_Dect:
             cv2.rectangle(img, (int(box[0]), int(box[1])),
                           (int(box[2]), int(box[3])), (0, 255, 0), 2)
             cv2.putText(img, box[-1],
-                        (int(box[0]), int(box[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+                        (int(box[0]), int(box[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
             boundingBox = BoundingBox()
             boundingBox.probability = box[4]
             boundingBox.xmin = box[0]
