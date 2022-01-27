@@ -73,7 +73,7 @@ cd /your/catkin_ws/src
 
 git clone https://github.com/qq44642754a/Yolov5_ros.git
 
-cd yolov5_ros/ultralytics_yolov5_master
+cd yolov5_ros/yolov5
 
 sudo pip install -r requirements.txt
 ```
