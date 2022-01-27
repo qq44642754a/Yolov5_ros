@@ -1,7 +1,5 @@
 # Yolov5_ros
 
-<img src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png" width="405">
-
 This package provides a ROS wrapper for [PyTorch-YOLOv5](https://github.com/ultralytics/yolov5) based on PyTorch-YOLOv5. The package has been tested with Ubuntu 16.04 and Ubuntu 18.04.
 
 V1.0.1: Add device options(cpu or gpu).
@@ -103,4 +101,6 @@ roslaunch yolov5_ros yolo_v5.launch
 * **`confidence`** 
 
     Confidence threshold for detected objects.
+    
+    <img src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png" width="405">
 
