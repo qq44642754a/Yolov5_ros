@@ -1,7 +1,7 @@
 float64 probability
-float64 xmin
-float64 ymin
-float64 xmax
-float64 ymax
-float64 num
+int64 xmin
+int64 ymin
+int64 xmax
+int64 ymax
+int16 num
 string Class

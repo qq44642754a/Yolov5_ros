@@ -8,7 +8,7 @@ import numpy as np
 
 from std_msgs.msg import Header
 from sensor_msgs.msg import Image
-from yolov5_ros_msgs.msg import BoundingBox
+from yolov5_ros_msgs.msg import BoundingBox, BoundingBoxes
 
 
 class Yolo_Dect:
@@ -45,7 +45,7 @@ class Yolo_Dect:
 
         # output publishers
         self.position_pub = rospy.Publisher(
-            pub_topic,  BoundingBox, queue_size=1)
+            pub_topic,  BoundingBoxes, queue_size=1)
 
         self.image_pub = rospy.Publisher(
             '/yolov5/detection_image',  Image, queue_size=1)
@@ -56,6 +56,9 @@ class Yolo_Dect:
             rospy.sleep(2)
 
     def image_callback(self, image):
+        self.boundingBoxes = BoundingBoxes()
+        self.boundingBoxes.header = image.header
+        self.boundingBoxes.image_header = image.header
         self.getImageStatus = True
         self.color_image = np.frombuffer(image.data, dtype=np.uint8).reshape(
             image.height, image.width, -1)
@@ -82,14 +85,15 @@ class Yolo_Dect:
             cv2.putText(img, box[-1],
                         (int(box[0]), int(box[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
             boundingBox = BoundingBox()
-            boundingBox.probability = box[4]
-            boundingBox.xmin = box[0]
-            boundingBox.ymin = box[1]
-            boundingBox.xmax = box[2]
-            boundingBox.ymax = box[3]
-            boundingBox.num = count
+            boundingBox.probability =np.float64(box[4])
+            boundingBox.xmin = np.int64(box[0])
+            boundingBox.ymin = np.int64(box[1])
+            boundingBox.xmax = np.int64(box[2])
+            boundingBox.ymax = np.int64(box[3])
+            boundingBox.num = np.int16(count)
             boundingBox.Class = box[-1]
-            self.position_pub.publish(boundingBox)
+            self.boundingBoxes.bounding_boxes.append(boundingBox)
+            self.position_pub.publish(self.boundingBoxes)
         self.publish_image(img, height, width)
         cv2.imshow('YOLOv5', img)
 

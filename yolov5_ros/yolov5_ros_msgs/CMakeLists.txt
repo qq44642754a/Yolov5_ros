@@ -11,6 +11,7 @@ add_message_files(
         DIRECTORY msg
         FILES
         BoundingBox.msg
+        BoundingBoxes.msg
 )
 
 generate_messages(
