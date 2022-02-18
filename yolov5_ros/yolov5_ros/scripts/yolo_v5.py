@@ -39,6 +39,9 @@ class Yolo_Dect:
         self.depth_image = Image()
         self.getImageStatus = False
 
+        # Load class color
+        self.classes_colors = {}
+
         # image subscribe
         self.color_sub = rospy.Subscriber(image_topic, Image, self.image_callback,
                                           queue_size=1, buff_size=52428800)
@@ -80,10 +83,6 @@ class Yolo_Dect:
             count += 1
 
         for box in boxs:
-            cv2.rectangle(img, (int(box[0]), int(box[1])),
-                          (int(box[2]), int(box[3])), (0, 255, 0), 2)
-            cv2.putText(img, box[-1],
-                        (int(box[0]), int(box[1])), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
             boundingBox = BoundingBox()
             boundingBox.probability =np.float64(box[4])
             boundingBox.xmin = np.int64(box[0])
@@ -92,6 +91,19 @@ class Yolo_Dect:
             boundingBox.ymax = np.int64(box[3])
             boundingBox.num = np.int16(count)
             boundingBox.Class = box[-1]
+
+            if box[-1] in self.classes_colors.keys():
+                color = self.classes_colors[box[-1]]
+            else:
+                color = np.random.randint(0, 183, 3)
+                self.classes_colors[box[-1]] = color
+
+            cv2.rectangle(img, (int(box[0]), int(box[1])),
+                          (int(box[2]), int(box[3])), (int(color[0]),int(color[1]), int(color[2])), 2)
+            cv2.putText(img, box[-1],
+                        (int(box[0]), int(box[1])-10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2, cv2.LINE_AA)
+
+
             self.boundingBoxes.bounding_boxes.append(boundingBox)
             self.position_pub.publish(self.boundingBoxes)
         self.publish_image(img, height, width)
