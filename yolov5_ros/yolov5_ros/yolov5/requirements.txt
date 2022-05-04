@@ -29,6 +29,10 @@ seaborn>=0.11.0
 # tensorflowjs>=3.9.0  # TF.js export
 # openvino-dev  # OpenVINO export
 
+# ROS --------------------------------------
+rospkg
+pyyaml
+
 # Extras --------------------------------------
 # albumentations>=1.0.3
 # Cython  # for pycocotools https://github.com/cocodataset/cocoapi/issues/172
