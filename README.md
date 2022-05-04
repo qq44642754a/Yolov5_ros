@@ -51,7 +51,7 @@ conda create -n mypytorch python=3.8
 conda activate mypytorch
 ```
 ### 3. Install pytorch1.8 in the created pytorch environment
-
+Install PyTorch: https://pytorch.org/get-started/locally/
 ```
 conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 ```
