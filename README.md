@@ -8,7 +8,7 @@ V1.0.1: Add device options(cpu or gpu).
 
 <p>
    <a align="left" href="https://ultralytics.com/yolov5" target="_blank">
-   <src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png"></a>
+   <img width = "1000" src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png"></a>
 </p>
 
 
