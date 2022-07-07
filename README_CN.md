@@ -70,3 +70,8 @@ roslaunch yolov5_ros yolo_v5.launch
 ```
 conda config --add envs_dirs 下载好的yolov5文件夹的路径
 ```
+最后通过指令
+```
+conda  activate yolov5
+```
+来激活conda环境
