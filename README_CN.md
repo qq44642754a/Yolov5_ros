@@ -65,7 +65,7 @@ roslaunch yolov5_ros yolo_v5.launch
 ```
 
 ## 特殊说明：
-鉴于最近有很多人安装配置不好yolov5的环境，所以我这边配置了好了一个名为yolov5的conda环境，基础环境为python3.8, pytorch1.12.0cpu版本。下载好后把文件解压后放入/anaconda3/envs/文件夹下，然后运行以下指令添加到conda环境中
+鉴于最近有很多人安装配置不好yolov5的环境，所以我这边配置了好了一个名为yolov5的conda环境，基础环境为python3.8, pytorch1.12.0cpu[百度网盘](https://pan.baidu.com/s/1Yp90Ri6owXk8wc1pfq_jcw)版本。下载好后把文件解压后放入/anaconda3/envs/文件夹下，然后运行以下指令添加到conda环境中
 
 ```
 conda config --add envs_dirs 下载好的yolov5文件夹的路径
