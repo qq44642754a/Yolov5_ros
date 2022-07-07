@@ -58,7 +58,7 @@ sudo pip install -r requirements.txt
 
 ## 基本用法
 
-1. 首先，确保将您训练好的权重放在 [models](https://github.com/qq44642754a/Yolov5_ros/tree/master/yolov5_ros/weights) 文件夹中。
+1. 首先，确保将您训练好的权重放在 [weights](https://github.com/qq44642754a/Yolov5_ros/tree/master/yolov5_ros/yolov5_ros/weights) 文件夹中。
 2. `launch/yolo_v5.launch` 文件中的默认使用`yolov5s.pt这个权重文件，另外您需要在launch文件中额外修改您对应的摄像头话题名称以及是否使用Cpu选项：
 ```
 roslaunch yolov5_ros yolo_v5.launch
