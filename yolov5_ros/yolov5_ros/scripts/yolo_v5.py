@@ -100,8 +100,14 @@ class Yolo_Dect:
 
             cv2.rectangle(img, (int(box[0]), int(box[1])),
                           (int(box[2]), int(box[3])), (int(color[0]),int(color[1]), int(color[2])), 2)
+
+            if box[1] < 20:
+                text_pos_y = box[1] + 30
+            else:
+                text_pos_y = box[1] - 10
+                
             cv2.putText(img, box[-1],
-                        (int(box[0]), int(box[1])-10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2, cv2.LINE_AA)
+                        (int(box[0]), int(text_pos_y)-10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2, cv2.LINE_AA)
 
 
             self.boundingBoxes.bounding_boxes.append(boundingBox)
