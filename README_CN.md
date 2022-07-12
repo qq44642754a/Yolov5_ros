@@ -19,7 +19,7 @@ Authors: Zhitao Zheng (qq44642754@163.com)
 
 ## 安装Anaconda：
 
-### 1.首先下载对应的安装包【Anaconda】(https://www.anaconda.com/products/individual#linux)
+### 1.首先下载对应的安装包[Anaconda](https://www.anaconda.com/products/individual#linux)
 ### 2.然后执行脚本安装anaconda（文件名为下载对应的.sh文件名）
 
 ```
