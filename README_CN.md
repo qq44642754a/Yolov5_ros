@@ -49,7 +49,7 @@ conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 cd /your/catkin_ws/src
 
-git clone https://github.com/qq44642754a/Yolov5_ros.git
+git clone -b v7.0 https://github.com/qq44642754a/Yolov5_ros.git
 
 cd yolov5_ros/yolov5
 
