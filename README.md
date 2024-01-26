@@ -16,4 +16,14 @@ This repository is a fork of the original [Yolov5_ros](https://github.com/qq4464
 - **Gazebo**
 ### Usage
 1. Open a terminal and launch the ```roslaunch topic```. The object_detection_pkg subscribes to the /webcam/image_raw publisher for live camera feed in Gazebo Simulation used for object detection.
-2. Open a new terminal and launch the ```roslaunch yolov5_ros sim_yolo_v5.launch ``` 
+2. Open a new terminal and launch the ```roslaunch yolov5_ros sim_yolo_v5.launch ```
+
+## Node Parameters
+- **image_topic**: Subscribed camera topic.
+- **weights_path**: Path to weights file.
+- **pub_topic**: Published topic with the detected bounding boxes.
+- **confidence**: Confidence threshold for detected objects.
+
+## Original README from Yolov5_ros
+
+The original [README_EN.md]() provides alternate detailed instructions for setting up and running the Yolov5_ros package, including prerequisites, installation steps, and basic usage.
