@@ -1,6 +1,7 @@
 # objectdetect_yolov5ros_pkg
 ## General Requirements
-- **YOLOv5**: Follow the documentation on the [YOLOv5 Installation Guide](https://app.gitbook.com/o/vtYvioW5qkBb75Erv7gv/s/PzWCobYwRWwuEeL79eAC/installing-yolov5) in GitBook
+- **YOLOv5 Installation**: Follow the documentation on the [YOLOv5 Installation Guide](https://app.gitbook.com/o/vtYvioW5qkBb75Erv7gv/s/PzWCobYwRWwuEeL79eAC/installing-yolov5) in GitBook.
+- **YOLOV5_PATH Enviornment Variable Creation**: Follow the documentation on the [YOLOV5_PATH Enviornment Creation]() in GitBook.
 ## Run with Intel RealSense D435 Camera
 ### Requirements
 - **Intel RealSense D435 Camera Setup**: Follow the [Sensorland](https://github.com/IcebergASV/Sensorland) README.md file to complete the installation. 
