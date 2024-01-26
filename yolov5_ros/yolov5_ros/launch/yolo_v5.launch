@@ -4,8 +4,9 @@
 
   <!-- Load Parameter -->
   
-  <param name="yolov5_path"       value="$(find yolov5_ros)/yolov5"/>
-  <param name="use_cpu"           value="false" />
+  <param name="yolov5_path" value="$(env YOLOV5_PATH)"/>
+
+  <param name="use_cpu"           value="true" />
 
   <!-- Start yolov5 and ros wrapper -->
   <node pkg="yolov5_ros" type="yolo_v5.py" name="yolov5_ros" output="screen" >
