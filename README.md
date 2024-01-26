@@ -26,4 +26,4 @@ This repository is a fork of the original [Yolov5_ros](https://github.com/qq4464
 
 ## Original README from Yolov5_ros
 
-The original [README_EN.md]() provides alternate detailed instructions for setting up and running the Yolov5_ros package, including prerequisites, installation steps, and basic usage.
+The original [README_EN.md](https://github.com/IcebergASV/objectdetect_yolov5ros_pkg/blob/gazebo-simulation/README_EN.md) provides alternate detailed instructions for setting up and running the Yolov5_ros package, including prerequisites, installation steps, and basic usage.
