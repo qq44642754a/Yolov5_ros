@@ -1,4 +1,6 @@
 # objectdetect_yolov5ros_pkg
+## Description
+This repository is a fork of the original [Yolov5_ros](https://github.com/qq44642754a/Yolov5_ros) package developed by Zhitao Zheng. We extend our heartfelt thanks to Zhitao Zheng for their foundational work. This project has been modified and tailored specifically for IcebergASV, enhancing its capabilities and adaptability. Significant alterations include customization for seamless integration with IcebergASV's systems and the addition of functionalities to run both with a camera setup and in a simulation environment. 
 ## General Requirements
 - **YOLOv5 Installation**: Follow the documentation on the [YOLOv5 Installation Guide](https://app.gitbook.com/o/vtYvioW5qkBb75Erv7gv/s/PzWCobYwRWwuEeL79eAC/installing-yolov5) in GitBook.
 - **YOLOV5_PATH Enviornment Variable Creation**: Follow the documentation on the [YOLOV5_PATH Enviornment Creation]() in GitBook.
