@@ -8,14 +8,14 @@ This repository is a fork of the original [Yolov5_ros](https://github.com/qq4464
 ### Requirements
 - **Intel RealSense D435 Camera Setup**: Follow the [Sensorland](https://github.com/IcebergASV/Sensorland) README.md file to complete the installation. 
 ### Usage
-1. Open a terminal and launch the ```roslaunch realsense2_camera rs_camera.launch```. The objectdetect_yolov5ros_pkg subscribes to the /camera/color/image_raw publisher for live camera feed used for object detection.
+1. Open a terminal and launch the ```roslaunch realsense2_camera rs_camera.launch```. The objectdetect_yolov5ros_pkg subscribes to the **/camera/color/image_raw** topic for live camera feed used for object detection.
 2. Open a new terminal and launch the ```roslaunch yolov5_ros yolo_v5.launch ```
 
 ## Run in Gazebo Simulation
 ### Requirements
 - **Gazebo**
 ### Usage
-1. Open a terminal and launch gazebo. The objectdetect_yolov5ros_pkg subscribes to the /webcam/image_raw publisher for live camera feed in Gazebo Simulation used for object detection.
+1. Open a terminal and launch gazebo. The objectdetect_yolov5ros_pkg subscribes to the **/webcam/image_raw** topic for live camera feed in Gazebo Simulation used for object detection.
 2. Open a new terminal and launch the ```roslaunch yolov5_ros sim_yolo_v5.launch ```
 
 ## Node Parameters
