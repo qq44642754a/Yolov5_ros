@@ -1,113 +1,29 @@
-# Yolov5_ros
+# objectdetect_yolov5ros_pkg
+## Description
+This repository is a fork of the original [Yolov5_ros](https://github.com/qq44642754a/Yolov5_ros) package developed by Zhitao Zheng. We extend our heartfelt thanks to Zhitao Zheng for their foundational work. This project has been modified and tailored specifically for IcebergASV, enhancing its capabilities and adaptability. Significant alterations include customization for seamless integration with IcebergASV's systems and the addition of functionalities to run both with a camera setup and in a simulation environment. 
+## General Requirements
+- **YOLOv5 Installation**: Follow the documentation on the [YOLOv5 Installation Guide](https://app.gitbook.com/o/vtYvioW5qkBb75Erv7gv/s/PzWCobYwRWwuEeL79eAC/yolov5-setup/installing-yolov5) in GitBook. Since a virtual environment is created in the documentation **make sure to activate it in every terminal you use** for this package. 
+- **YOLOV5_PATH Enviornment Variable Creation**: Follow the documentation on the [YOLOV5_PATH Enviornment Creation](https://app.gitbook.com/o/vtYvioW5qkBb75Erv7gv/s/PzWCobYwRWwuEeL79eAC/yolov5-setup/yolov5_path-environment-variable) in GitBook.
+## Run with Intel RealSense D435 Camera
+### Requirements
+- **Intel RealSense D435 Camera Setup**: Follow the [Sensorland](https://github.com/IcebergASV/Sensorland) README.md file to complete the installation. 
+### Usage
+1. Open a terminal and launch the ```roslaunch realsense2_camera rs_camera.launch```. The objectdetect_yolov5ros_pkg subscribes to the **/camera/color/image_raw** topic for live camera feed used for object detection.
+2. Open a new terminal and launch the ```roslaunch yolov5_ros yolo_v5.launch ```
 
-For simplified Chinese version: [简体中文版](./README_CN.md) 
+## Run in Gazebo Simulation
+### Requirements
+- **Gazebo**
+### Usage
+1. Open a terminal and launch gazebo. The objectdetect_yolov5ros_pkg subscribes to the **/webcam/image_raw** topic for live camera feed in Gazebo Simulation used for object detection.
+2. Open a new terminal and launch the ```roslaunch yolov5_ros sim_yolo_v5.launch ```
 
-This package provides a ROS wrapper for [PyTorch-YOLOv5](https://github.com/ultralytics/yolov5) based on PyTorch-YOLOv5. The package has been tested with Ubuntu 16.04 and Ubuntu 18.04.
+## Node Parameters
+- **image_topic**: Subscribed camera topic.
+- **weights_path**: Path to weights file.
+- **pub_topic**: Published topic with the detected bounding boxes.
+- **confidence**: Confidence threshold for detected objects.
 
-V1.0.1: Add device options(cpu or gpu).
+## Original README from Yolov5_ros
 
-**Authors**: Zhitao Zheng (<qq44642754@163.com>)
-
-<p>
-   <img width = "1000" src="https://github.com/qq44642754a/Yolov5_ros/blob/master/yolov5_ros/yolov5_ros/media/image.png"></a>
-</p>
-
-
-# develop environment：
-- Ubuntu 16.04 / 18.04
-- ROS Kinetic / Melodic
-- Python>=3.6.0 environment, including PyTorch>=1.7
-
-# Prerequisites:
-
-## Install Anaconda:
-
-### 1. First download the corresponding installation package [Anaconda](https://www.anaconda.com/products/individual#linux)
-### 2. Then install anaconda （for example）
-
-```
-bash ~/Downloads/Anaconda3-2021.05-Linux-x86_64.sh
-```
-### 3. Edit the ~/.bashrc file and add it at the end
-
-```
-export PATH=/home/your/anaconda3/bin:$PATH
-```
-### 4. Execute after save and exit:
-
-```
-source ~/.bashrc
-```
-
-## Install Pytorch:
-
-### 1. First create an anaconda virtual environment for pytorch
-
-```
-conda create -n mypytorch python=3.8
-```
-### 2. activate the mypytorch environment
-
-```
-conda activate mypytorch
-```
-### 3. Install pytorch1.8 in the created pytorch environment
-Install PyTorch: https://pytorch.org/get-started/locally/
-```
-conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
-```
-### 4. Edit ~/.bashrc file, set to use python3.8 in mypytorch environment
-
-```
-alias python='/home/your/anaconda3/envs/mypytorch/bin/python3.8'
-```
-### 5. Execute after save and exit:
-
-```
-source ~/.bashrc
-```
-
-## Installation yolov5_ros
-
-```
-cd /your/catkin_ws/src
-
-git clone https://github.com/qq44642754a/Yolov5_ros.git
-
-cd yolov5_ros/yolov5
-
-sudo pip install -r requirements.txt
-```
-
-## Basic Usage
-
-1. First, make sure to put your weights in the [weights](https://github.com/qq44642754a/Yolov5_ros/tree/master/yolov5_ros/yolov5_ros/weights) folder. 
-2.  The default settings (using `yolov5s.pt`) in the `launch/yolo_v5.launch` file should work, all you should have to do is change the image topic you would like to subscribe to:
-
-```
-roslaunch yolov5_ros yolo_v5.launch
-```
-
-  
-  Alternatively you can modify the parameters in the [launch file](https://github.com/qq44642754a/Yolov5_ros/tree/master/yolov5_ros/launch/yolo_v5.launch), recompile and launch it that way so that no arguments need to be passed at runtime.
-
-### Node parameters
-
-* **`image_topic`** 
-
-    Subscribed camera topic.
-
-* **`weights_path`** 
-
-    Path to weights file.
-
-* **`pub_topic`** 
-
-    Published topic with the detected bounding boxes.
-    
-* **`confidence`** 
-
-    Confidence threshold for detected objects.
-    
-
-
+The original [README_EN.md](https://github.com/IcebergASV/objectdetect_yolov5ros_pkg/blob/gazebo-simulation/README_EN.md) provides alternate detailed instructions for setting up and running the Yolov5_ros package, including prerequisites, installation steps, and basic usage.
