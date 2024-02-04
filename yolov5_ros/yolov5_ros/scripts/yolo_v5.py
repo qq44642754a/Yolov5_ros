@@ -113,7 +113,8 @@ class Yolo_Dect:
             self.boundingBoxes.bounding_boxes.append(boundingBox)
             self.position_pub.publish(self.boundingBoxes)
         self.publish_image(img, height, width)
-        cv2.imshow('YOLOv5', img)
+        if (rospy.get_param('/visualize_object_detect', 'true')):
+            cv2.imshow('YOLOv5', img)
 
     def publish_image(self, imgdata, height, width):
         image_temp = Image()
