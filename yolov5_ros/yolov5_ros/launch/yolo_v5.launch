@@ -12,7 +12,7 @@
 
   <!-- Start yolov5 and ros wrapper -->
   <node pkg="yolov5_ros" type="yolo_v5.py" name="yolov5_ros" output="screen" >
-    <param name="weight_path"       value="$(find yolov5_ros)/weights/yolov5s.pt"/>
+    <param name="weight_path"       value="$(find yolov5_ros)/weights/marine_markers_v1.pt"/>
     <param name="image_topic"       value="/camera/color/image_raw" />
     <param name="pub_topic"         value="/yolov5/BoundingBoxes" />
     <param name="camera_frame"       value="camera_color_frame"/>
